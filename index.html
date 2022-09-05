@@ -1,12 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url(./bg.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .box {
+            width: 1200px;
+            margin: 0 auto;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .box div {
+            overflow: hidden;
+            font-size: 2em;
+            color: white;
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .box div img {
+            float: left;
+            margin: 10px 50px;
+            display: block;
+            width: 300px;
+            height: 200px;
+        }
+
+        .box div .last {
+            float: right;
+        }
+
+        #sfq {
+            width: 400px;
+            height: 100px;
+        }
+    </style>
 </head>
+
 <body>
-    <div class="box">=box</div>
+    <div class="box">
+        <div>
+            <div class="text">HTML</div>
+            <img src="./HTML整形.png" alt="">
+
+        </div>
+        <div>
+            <div class="text">JS</div>
+            <img src="./JS海绵宝宝.png" alt="">
+            <img src="./JS推箱子.png" alt="" class="last">
+        </div>
+        <div>
+            <div class="text">JQ</div>
+            <img src="./JQ手风琴.png" alt="" id="sfq">
+            <img src="./JQ音乐播放器.png" alt="" class="last">
+        </div>
+        <div>
+            <div class="text">VUE</div>
+        </div>
+    </div>
 </body>
+
 </html>
