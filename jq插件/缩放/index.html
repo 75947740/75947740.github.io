@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>jQuery图像缩放插件jquery.zoom.js</title>
+<style type="text/css">
+.highlight {
+	background: #eee;
+	padding: 1px 5px;
+	border-radius: 2px;
+	color: #FF5722;
+	font-size: 14px;
+}
+
+.box {
+	width: 560px;
+	height: 560px;
+	background: #eee;
+	border: 1px solid #aaa;
+	/* 	居中，可选	*/
+	margin: 0 auto;
+}
+</style>
+</head>
+<body style="margin: 0; padding: 0;">
+	<div style="background: #fcfcff; border: 1px solid #ededff; text-align: center;">
+		<h3>说明：</h3>
+		<div style="width: 560px; text-align: left; margin: 0 auto;">
+			<p>所以，10秒钟实现缩放。</p>
+			<p>
+				1、引入
+				<span class="highlight">jquery + jquery.zoom.js</span>
+			</p>
+			<p>
+				2、创建元素
+				<span class="highlight">&lt;div class="box"&gt;&lt;/div&gt;</span>
+				， 并为其指定宽高；
+			</p>
+			<p>
+				3、调用
+				<span class="highlight">ezoom</span>
+				方法。
+			</p>
+		</div>
+	</div>
+	<div class="contorll" style="background: #f7fcff;">
+		<!-- 元素容器盒子 -->
+		<div class="box"></div>
+	</div>
+	<div style="text-align: center;">
+		<!-- 操作 -->
+		<!-- 		<button id="btn-p">放大</button> -->
+	</div>
+	<script type="text/javascript" src="https://www.jq22.com/jquery/jquery-2.1.1.js"></script>
+	<script type="text/javascript" src="./jquery.zoom.js"></script>
+<!-- 	<script type="text/javascript" src="../../../lvdoc_portal/WebContent/js/cursor-effects.js"></script> -->
+	<script type="text/javascript">
+		$(main);
+
+		function main() {
+			$('.box').ezoom('https://images.unsplash.com/photo-1658762549579-1b07a610072e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80', function(e) {
+				console.log(e);
+			});
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,309 @@
+body {
+    margin: 0;
+    border: 0;
+    overflow:Scroll;overflow-y:hidden;
+    overflow-x:hidden
+}
+
+a {
+    text-decoration: none;
+}
+
+p {
+    margin: 0;
+    border: 0;
+}
+
+.headerbox {
+    position: fixed;
+    z-index: 9;
+    top: 0;
+    left: 0;
+    height: 48px;
+    background-color: #000;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.header {
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.header img {
+    margin-top: 10px;
+}
+
+.link {
+    float: right;
+}
+
+.link a {
+    color: #A4A4A4;
+    margin-left: 40px;
+    line-height: 48px;
+}
+
+.box {
+    transition-duration: 0.8s;
+    transform: translate3d(0);
+    transform: rotateY(0);
+    
+}
+
+.box1 {
+    background-color: black;
+    background-image: url(./bg1.jpg);
+    width: 100%;
+    background-color: #010001;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    color: white;
+    height: 100vh;
+}
+
+#box1 {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    z-index: 6;
+    top: 160px;
+    pointer-events: none;
+}
+
+.box1text1 {
+    font-size: 60px;
+    line-height: 70px;
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    
+}
+
+.box1text2 {
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    margin: 8px auto 36px;
+}
+
+.box1 span {
+    display: table;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.box1 span a {
+    float: left;
+    width: 180px;
+    height: 60px;
+    border-radius: 30px;
+    border: 1px solid #FFF;
+    margin: 0 16px;
+    font-size: 20px;
+    line-height: 60px;
+    text-align: center;
+    pointer-events: visible;
+}
+
+.box1 span a img {
+    width: 20px;
+    height: 20px px;
+    margin-right: 8px;
+    display: inline-block;
+}
+
+#a32 {
+    background: rgba(0, 0, 0, 0.5);
+    color: #FFF;
+}
+
+#a64 {
+    background: #fff;
+    color: #000;
+}
+
+.box2 {
+    display: block;
+    width: 100%;
+    height: 100vh;
+    background-color: #010001;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.box2 .text {
+    width: 50%;
+    min-width: 400px;
+    position: absolute;
+    z-index: 5;
+    left: 18%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.box3 {
+    display: block;
+    width: 100%;
+    height: 100vh;
+    background-color: #010001;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.box3 .text {
+    width: 50%;
+    min-width: 400px;
+    position: absolute;
+    z-index: 5;
+    left: 18%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.box4 {
+    display: block;
+    width: 100%;
+    height: 100vh;
+    background-color: #010001;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.box4 .text {
+    width: 50%;
+    min-width: 400px;
+    position: absolute;
+    z-index: 5;
+    left: 18%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.box5 {
+    display: block;
+    width: 100%;
+    height: 100vh;
+    background-color: #010001;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.box5 .text {
+    width: 50%;
+    min-width: 400px;
+    position: absolute;
+    z-index: 5;
+    left: 18%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.text #text1 {
+    font-size: 60px;
+    line-height: 70px;
+    color: #fff;
+}
+
+.text #text2 {
+    font-size: 36px;
+    line-height: 40px;
+    color: #fff;
+}
+
+.text #text3 {
+    margin: 12px 0 50px;
+    font-size: 16px;
+    line-height: 22px;
+    color: #fff;
+}
+
+.text .line {
+    width: 28px;
+    height: 3px;
+    background-color: #5E5E5E;
+    margin: 20px 0;
+}
+
+.text a {
+    text-align: center;
+    display: block;
+    width: 200px;
+    height: 48px;
+    background-image: url(./立即体验.png);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+}
+
+.footer {
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    bottom: 0;
+    height: 120px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 22px;
+    padding-top: 38px;
+    overflow: hidden;
+    background-color: #131416;
+    color: #4A4A4A;
+}
+
+.footer a {
+    color: #4A4A4A;
+}
+
+.change {
+    width: 8px;
+    height: 72px;
+    right: 30px;
+    top: 50%;
+    margin-top: -36px;
+    position: fixed;
+    text-align: center;
+}
+
+.change span {
+    width: 6px;
+    height: 6px;
+    float: left;
+    margin-bottom: 8px;
+    background: #c3c3c3;
+    border-radius: 100%;
+    opacity: 0.5;
+    z-index: 10;
+}

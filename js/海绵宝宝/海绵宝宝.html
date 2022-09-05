@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        .box {
+            margin: 0 auto;
+            margin-top: 50px;
+            background-image: url(./486142478_dc4dcb-0001.jpg);
+            background-position: 0 0;
+            width: 470px;
+            height: 270px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        p {
+            position: absolute;
+            left: 500px;
+            color: white;
+            /* margin: 5px 0; */
+        }
+        .box .jdt{
+            top: 0;
+            height: 5px;
+            position: absolute;
+            background: lightblue;
+        }
+    </style>
+    <div class="box">
+        <div class="jdt"></div>
+    </div>
+    <script>
+        var box = document.querySelector('.box')
+        var jdt=document.querySelector('.box .jdt')
+        box.style.backgroundPositionX = '0'
+        box.onmousemove = function () {
+            // console.log(event.offsetX);
+            var x = event.offsetX
+            var a = Math.floor(x / 4.7)
+            b = Math.floor(a / 10)
+            box.style.backgroundPositionX = a * -480 + 'px'
+            box.style.backgroundPositionY = b * -270 + 'px'
+            jdt.style.width=x+'px'
+        }
+        var dm = [
+            "章鱼哥还是没有胜过强风暴雨(doge)",
+            "日本裁判",
+            "日本裁判",
+            "海绵宝宝笑死我了",
+            "黑人小哥",
+            "堡垒之夜",
+            "最喜欢的一集",
+            "最喜欢的一集",
+            "喜欢",
+            "我怎么觉得派大星这个配音我在神奇宝贝里听过",
+            "我看见你了",
+            "但凡章鱼哥早点回去都不至于这样",
+            "这……这我还真有可能“模仿”",
+            "为什么非要执着于台配或者央配呢",
+            "派总依旧稳定输出",
+            "包租公～",
+            "为什么台配的海绵宝宝跟低能儿似的",
+            "井字游戏，其实可以先手必胜的",
+            "我小时候就看的台配",
+            "终于找到了",
+        ];
+        function Dot(width, x, y, speed, text) {
+            this.width = width;
+            this.x = x;
+            this.y = y;
+            this.speed = speed;
+            this.text = text;
+        }
+        Dot.prototype.update = function () {
+            this.node.style.top = this.y + 'px';
+            this.node.style.left = this.x + "px";
+        }
+        Dot.prototype.draw = function () {
+            this.node = document.createElement("p");
+            this.node.innerHTML = this.text;
+            this.node.style.width = this.width + "px";
+            this.node.style.fontSize = 10 + 'px'
+            this.update();
+            box.appendChild(this.node);
+        };
+        Dot.prototype.check = function () {
+            var rightPZ = this.x + this.width > 500;
+            var leftPZ = this.x + this.width < 0;
+            if (leftPZ) {
+                box.removeChild(this.node);
+                dots.splice(dots.indexOf(this), 1);
+            }
+        }
+        Dot.prototype.move = function () {
+            this.check();
+            this.x -= this.speed;
+            this.update();
+        };
+
+        var dots = [
+            new Dot(270, 500, 10, 2, dm[0]),
+            new Dot(270, 550, 20, 2, dm[1]),
+            new Dot(270, 600, 50, 2, dm[2]),
+            new Dot(270, 650, 60, 2, dm[3]),
+            new Dot(270, 700, 30, 2, dm[4]),
+            new Dot(270, 750, 70, 2, dm[5]),
+            new Dot(270, 800, 10, 2, dm[6]),
+            new Dot(270, 850, 50, 2, dm[7]),
+            new Dot(270, 900, 20, 2, dm[8]),
+            new Dot(270, 950, 70, 2, dm[9]),
+            new Dot(270, 1000,60, 2, dm[10]),
+            new Dot(270, 1050,30, 2, dm[11]),
+            new Dot(270, 1100,60, 2, dm[12]),
+            new Dot(270, 1150,50, 2, dm[13]),
+            new Dot(270, 1300,100, 2, dm[14]),
+            new Dot(270, 1550,50, 2, dm[15]),
+            new Dot(270, 1400,70, 2, dm[16]),
+            new Dot(270, 1350,20, 2, dm[17]),
+            new Dot(270, 1400,90, 2, dm[18]),
+            new Dot(270, 1450,10, 2, dm[19]),
+        ]; 
+        00 + dots.forEach(function (dot) {
+            dot.draw();
+        });
+        box.onmouseover = function () {
+            var id = setInterval(function () {
+                dots.forEach(function (dot) {
+                    dot.move();
+                });
+            }, 30);
+            box.onmouseout = function () {
+                clearInterval(id)
+            }
+        }
+    </script>
+</body>
+
+</html>

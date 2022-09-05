@@ -1,0 +1,245 @@
+.offer .row h2 {
+  text-align: center;
+  margin: 2em 0;
+}
+.offer .row .offercard {
+  text-align: center;
+}
+.header .header-bighero {
+  background-image: url(img/hero-bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+  padding-top: 145px;
+  padding-bottom: 215px;
+}
+.header .header-bighero .text1 {
+  font-size: 15px;
+  font-weight: 500;
+  color: #13a2b7;
+}
+.header .header-bighero .text2 {
+  width: 600px;
+  font-size: 48px;
+  color: #111111;
+  font-weight: 700;
+  line-height: 60px;
+  margin-top: 10px;
+  margin-bottom: 35px;
+}
+.header .header-bighero button {
+  background: #13a2b7;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 12px 30px 10px;
+  border: 2px solid #13a2b7;
+  border-radius: 5px;
+  font-size: 15px;
+}
+.header .container .REQUESTleft {
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  margin-top: -70px;
+  background: #ffffff;
+  padding: 50px;
+}
+.header .container .REQUESTleft .REQUEST {
+  margin-bottom: 50px;
+  margin-left: 30px;
+}
+.header .container .REQUESTleft .REQUEST h2 {
+  color: #111111;
+  font-weight: 700;
+  font-size: 36px;
+}
+.header .container .REQUESTleft .REQUEST span {
+  font-size: 15px;
+  color: #888888;
+  font-weight: 500;
+}
+.header .container .REQUESTleft form {
+  margin-left: 30px;
+}
+.header .container .REQUESTleft form input {
+  font-size: 15px;
+  color: #666666;
+  width: 100%;
+  height: 50px;
+  padding-left: 20px;
+  border: 1px solid #f2f2f2;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.header .container .REQUESTleft form button {
+  font-size: 15px;
+  color: #ffffff;
+  background: #13a2b7;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  padding: 14px 30px 12px;
+}
+.header .container .REQUESTleft form button a {
+  color: white;
+}
+.header .container .REQUESTright {
+  padding-top: 50px;
+  border-bottom: 1px solid #f2f2f2;
+}
+.header .container .REQUESTright .row {
+  align-items: center;
+}
+.header .container .REQUESTright .row span {
+  font-size: 15px;
+  color: #888888;
+  font-weight: 500;
+}
+.header .container .REQUESTright .row h2 {
+  color: #111111;
+  font-weight: 700;
+  margin-top: 8px;
+  font-size: 36px;
+}
+.header .container .REQUESTright .row h2 b {
+  font-weight: 700;
+  color: #13a2b7;
+}
+.services {
+  background-image: url('img/services-bg.jpg');
+  background-position: center;
+  background-size: cover;
+  padding: 50px 0;
+}
+.services .row .left h2 {
+  margin-top: 0;
+  color: white;
+}
+.services .row .right {
+  text-align: right;
+}
+.services .row .right button {
+  border: 1px solid #13a2b7;
+  color: white;
+  background-color: transparent;
+}
+.services .row .col-xs-12 {
+  margin: 15px 0;
+}
+.services .row .col-xs-12 .media {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+}
+.services .row .col-xs-12 .media .media-body {
+  margin-left: 15px;
+}
+.team .row .card {
+  border: 0;
+}
+.team .row .card .photo {
+  border-radius: 50%;
+}
+.team .row .card p {
+  color: #13a2b7;
+  text-align: center;
+}
+.team .row h2 {
+  text-align: center;
+}
+.photo .row .photo1 {
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 300px;
+  background-image: url(img/gallery-1.jpg);
+}
+.photo .row .photo2 {
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 300px;
+  background-image: url(img/gallery-2.jpg);
+}
+.photo .row .photo3 {
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 300px;
+  background-image: url(img/gallery-3.jpg);
+}
+.photo .row .photo4 {
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 300px;
+  background-image: url(img/gallery-5.jpg);
+}
+.photo .row .photo5 {
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 300px;
+  background-image: url(img/gallery-6.jpg);
+}
+.photo .row .photo6 {
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 300px;
+  background-image: url(img/gallery-7.jpg);
+}
+.photo .photo7 {
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 600px;
+  background-image: url(img/gallery-4.jpg);
+}
+.footerbox {
+  background-color: black;
+  color: white;
+  margin: 20px 0;
+}
+.footerbox ul {
+  list-style: none;
+}
+.footerbox .footer1 {
+  padding: 30px 0;
+  justify-content: space-between;
+}
+.footerbox .footer1 .footer1-left {
+  vertical-align: middle;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1;
+}
+.footerbox .footer1 .footer1-middle form {
+  padding: 0;
+  height: 30px;
+  border: 1px solid #15bed8;
+  border-radius: 20px;
+}
+.footerbox .footer1 .footer1-middle form input {
+  margin-left: 10px;
+  color: white;
+  width: 55%;
+  background-color: transparent;
+  border-radius: 20px;
+  height: 30px;
+  border: 0px;
+  padding: 0;
+  outline: none;
+  font-size: 14px;
+}
+.footerbox .footer1 .footer1-middle form button {
+  width: 40%;
+  color: white;
+  background-color: #15bed8;
+  border: 0px;
+  float: right;
+  height: 31px;
+  border-radius: 0 25px 25px 0;
+  padding: 0;
+}
+.footerbox .footer2 {
+  justify-content: space-evenly;
+}
+.footerbox .footer2 .footer2-left {
+  padding: 0;
+}
+.footerbox .footer3 {
+  justify-content: space-around;
+}
+/*# sourceMappingURL=./整形.css.map */

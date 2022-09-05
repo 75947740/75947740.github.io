@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {}
+
+        .box .photo {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            /* margin: 0 auto; */
+        }
+
+        .box .photo img {
+            width: 100%;
+            display: block;
+        }
+
+        .box .photo .fdj {
+            width: 100px;
+            height: 100px;
+            background-color: rgba(0, 0, 255, 0.5);
+
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .box .zoom {
+            width: 300px;
+            height: 300px;
+            background-color: lightblue;
+
+            background-image: url("./1.jpg");
+            /* background-size: 200%; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="photo">
+            <img src="./1.jpg" alt="" />
+            <div class="fdj"></div>
+        </div>
+        <div class="zoom"></div>
+    </div>
+    <script>
+        var level = 3;
+        var photoEl = document.querySelector(".box .photo");
+        //  querySelector 只能选中一个   querySelectorAll 多个
+        var fdjEl = document.querySelector(".box .photo .fdj");
+        var zoomEl = document.querySelector(".box .zoom");
+
+        //  根据放大级别设置背景图的大小
+        zoomEl.style["background-size"] = level * 100 + "%";
+        //  设置放大图片的宽高
+        var zoomWidth = zoomEl.offsetWidth;
+        var zoomHeight = zoomEl.offsetHeight;
+        //  设置缩略图宽高
+        var photoWidth = photoEl.offsetWidth;
+        var photoHeight = photoEl.offsetHeight;
+        //  计算fdj的宽高
+        var fdjWidth = photoWidth / level;
+        var fdjHeight = photoEl.offsetHeight / level;
+        // 设置放大镜的宽高
+        fdjEl.style.width = fdjWidth + "px";
+        fdjEl.style.height = fdjHeight + "px";
+        // 设置距离当前页面的左侧距离和上侧距离
+        var offsetLeft = photoEl.offsetLeft;
+        var offsetTop = photoEl.offsetTop;
+        // 当鼠标移动时
+        photoEl.onmousemove = function () {
+            console.log(event.pageX - offsetLeft, event.pageY - offsetTop);
+            // 打印页面X-当前页面的左侧距离,页面Y-当前页面的上侧距离
+
+            // mx,my 代表鼠标的坐标 
+            var mx = event.pageX - offsetLeft;
+            var my = event.pageY - offsetTop;
+            // 放大镜的左上角的坐标 鼠标坐标-放大镜宽高/2
+            var fdjX = mx - fdjWidth / 2;
+            var fdjY = my - fdjHeight / 2;
+            // 限定放大镜移动的范围
+            if (fdjX < 0) {
+                fdjX = 0;
+            }
+            if (fdjX > photoWidth - fdjWidth) {
+                fdjX = photoWidth - fdjWidth;
+            }
+            if (fdjY < 0) {
+                fdjY = 0;
+            }
+            if (fdjY > photoHeight - fdjHeight) {
+                fdjY = photoHeight - fdjHeight;
+            }
+            // 放大镜移动的范围=缩略图宽高-放大镜宽高
+
+            // 放大镜跟着鼠标走
+            fdjEl.style.left = fdjX + "px";
+            fdjEl.style.top = fdjY + "px";
+
+            zoomEl.style["background-position"] =
+                -(zoomWidth / fdjWidth) * fdjX + "px " + -(zoomHeight / fdjHeight) * fdjY + "px";
+
+            // 放大图片的背景定位=-(放大图片宽度/放大镜宽度)*放大镜X坐标+-(放大图片高度/放大镜高度)*放大镜Y坐标
+        }
+    </script>
+</body>
+
+</html>

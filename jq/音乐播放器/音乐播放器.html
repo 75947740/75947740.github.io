@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.2.0/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="./font_go0jl088imd/iconfont.ttf">
+    <title>Document</title>
+    <style>
+        body {
+            height: 100%;
+            width: 100%;
+            background: black;
+            position: relative;
+        }
+
+        .box {
+            background-image: url(./cdbk.png);
+            width: 500px;
+            height: 500px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: absolute;
+            left: 30%;
+            bottom: -550px;
+        }
+
+        .card {
+            background-image: url(./cddisk.png);
+            height: 70%;
+            width: 70%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            text-align: center;
+            position: absolute;
+            top: 60px;
+            left: 80px;
+        }
+
+
+        .load {
+            background-image: url(./controllerArm.png);
+            width: 25%;
+            height: 50%;
+            position: absolute;
+            left: -100px;
+            top: 100px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            transform-origin: top right;
+            transform: rotate(-130deg);
+            transition: all 0.8s;
+        }
+
+        .start {
+            transform: rotate(-110deg);
+            transition: all 1s;
+        }
+
+        .button div {
+            position: absolute;
+            right: -40px;
+            top: 50px;
+            width: 100px;
+            height: 37px;
+            z-index: -9;
+            background-image: url(./controllBtn.png);
+        }
+
+        .button div i {
+            position: absolute;
+            color: white;
+            font-size: 1.5em;
+            right: 10px;
+            top: 10px;
+        }
+
+        .button :nth-child(2) {
+            top: 110px;
+        }
+
+        .button :nth-child(3) {
+            top: 170px;
+        }
+
+        .button :nth-child(3) i {
+            right: 15px;
+        }
+
+        .button :nth-child(4) {
+            top: 230px;
+        }
+
+        .button :nth-child(4) i {
+            right: 15px;
+        }
+
+        .button :nth-child(5) {
+            top: 290px;
+        }
+
+        .button :nth-child(6) {
+            top: 350px;
+        }
+
+        .button :nth-child(7) {
+            top: 410px;
+        }
+
+        .play {
+            animation-name: play;
+            animation-iteration-count: infinite;
+            animation-duration: 5s;
+            animation-delay: 1s;
+            animation-timing-function: linear;
+        }
+
+        .pause {
+            animation-play-state: paused;
+        }
+
+        .name {
+            position: absolute;
+            bottom: 20px;
+            left: 40px;
+            color: red;
+        }
+
+        @keyframes play {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @font-face {
+            font-family: 'iconfont';
+            src: url("./font_go0jl088imd/iconfont.ttf") format('truetype');
+        }
+
+        .iconfont {
+            color: white;
+            font-family: "iconfont";
+            font-size: 2em;
+            font-style: normal;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .module {
+            position: absolute;
+            bottom: 10px;
+            right: 20px;
+            display: flex;
+        }
+
+        .module div {
+            margin: 0 10px;
+        }
+
+        .click {
+            color: red;
+        }
+
+        audio {
+            visibility: hidden;
+        }
+
+        label {
+            position: relative;
+            height: 10px;
+            display: block;
+            overflow: hidden;
+            left: 80px;
+            bottom: -420px;
+        }
+
+        input {
+            width: 350px;
+            height: 100%;
+            margin: 0;
+            opacity: 0;
+            display: block;
+            position: relative;
+            z-index: 1;
+        }
+
+        .jindu {
+            width: 350px;
+            height: 100%;
+            background-color: gray;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 5px;
+        }
+
+        .jindu .mask {
+            position: relative;
+            width: 0%;
+            height: 100%;
+            background-color: white;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="card">
+
+        </div>
+        <label>
+            <input type="range" name="progress" min="0" value="0" max="100" step="0.01" />
+            <div class="jindu">
+                <div class="mask"></div>
+            </div>
+        </label>
+        <div class="load"></div>
+        <div class="button">
+            <div id="start"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+            <div id="pause"><i class="fa fa-pause-circle" aria-hidden="true"></i></div>
+            <div id="next"><i class="fa fa-step-forward" aria-hidden="true"></i></div>
+            <div id="prev"><i class="fa fa-step-backward" aria-hidden="true"></i></div>
+            <div id="stop"><i class="fa fa-stop-circle" aria-hidden="true"></i></div>
+            <div id="first"><i class="fa fa-fast-backward" aria-hidden="true"></i></div>
+            <div id="last"><i class="fa fa-fast-forward" aria-hidden="true"></i></div>
+        </div>
+        <div class="name"></div>
+        <div class="module">
+            <div id="sjbf"><span class="iconfont">&#xe622;</span></div>
+            <div id="sxbf"><span class="iconfont">&#xe6a1;</span></div>
+            <div id="dqxh"><span class="iconfont">&#xe620;</span></div>
+        </div>
+    </div>
+    <audio controls id="j">
+        <source src="./金钟国 - Speechless (Live).mp3" type="audio/mpeg" id="jzg">
+    </audio>
+    <audio controls id="d">
+        <source src="./墨绛 - 【墨绛】盗将行_白展堂.mp3" type="audio/mpeg" id="djx">
+    </audio>
+    <audio controls id="n">
+        <source src="./Lia - 鳥の詩.mp3" type="audio/mpeg" id="nzs">
+    </audio>
+    <script>
+        var j = document.querySelector('#j')
+        var d = document.querySelector('#d')
+        var n = document.querySelector('#n')
+        var music = [j, d, n]
+        var jzg = $('#jzg').attr("src").slice(2)
+        var djx = $('#djx').attr("src").slice(2)
+        var nzs = $('#nzs').attr("src").slice(2)
+        var names = [jzg, djx, nzs]
+        var i = 0;
+        var audio = document.querySelector("audio")
+        var musicname = document.querySelector('.name')
+        var progress = document.querySelector("input[name=progress]");
+        var mask = document.querySelector(".mask");
+        var ds = []
+        var sjplay = function () {
+            var sj = setInterval(function () {
+                if ($('#sjbf >').hasClass('click')) {
+                    if (music[i].ended) {
+                        music[i].currentTime = 0;
+                        music[i].pause()
+                        i = Math.round(Math.random() * 2)
+                        music[i].play()
+                        musicname.innerHTML = names[i]
+                    }
+                }
+
+            }, 500);
+
+        }
+
+        var sxplay = function () {
+            var sx = setInterval(function () {
+                if ($('#sxbf >').hasClass('click')) {
+                    if (music[i].ended) {
+                        i++;
+                        music[i - 1].currentTime = 0
+                        music[i - 1].pause();
+                        if (i > 2) {
+                            i = 0;
+                        }
+                        music[i].play();
+                        musicname.innerHTML = names[i]
+                    }
+                }
+            }, 500);
+            return ds.push(sx)
+        }
+        var dqplay = function () {
+            var dq = setInterval(function () {
+                if ($('#dqxh >').hasClass('click')) {
+                    if (music[i].ended) {
+                        music[i].currentTime = 0;
+                        music[i].play()
+                        musicname.innerHTML = names[i]
+                    }
+                }
+            }, 500);
+        }
+        progress.oninput = function () {
+            mask.style.width = this.value + "%";
+            music[i].currentTime = (this.value * music[i].duration) / 100;
+        };
+        $('#start').click(function () {
+            $('.load').addClass("start");
+            $('.card').addClass("play");
+            $('.card').removeClass("pause");
+            music[i].play();
+            musicname.innerHTML = names[i]
+            x()
+        })
+        $('#pause').click(function () {
+            $('.load').removeClass("start");
+            $('.card').addClass("pause");
+            music[i].pause();
+            x()
+        })
+        $('#next').click(function () {
+            $('.card').removeClass("play");
+            i++;
+            music[i - 1].currentTime = 0
+            music[i - 1].pause();
+            if (i > 2) {
+                i = 0;
+            }
+            music[i].play();
+            musicname.innerHTML = names[i]
+            $('.card').addClass("play");
+            x()
+            $('.card').removeClass("pause");
+            $('.load').addClass("start");
+        })
+        $('#prev').click(function () {
+            $('.card').removeClass("play");
+            i--;
+            music[i + 1].currentTime = 0
+            music[i + 1].pause();
+            if (i < 0) {
+                i = 2;
+            }
+            music[i].play();
+            musicname.innerHTML = names[i]
+            $('.card').addClass("play");
+            console.log(i);
+            x()
+            $('.card').removeClass("pause");
+            $('.load').addClass("start");
+        })
+        $('#stop').click(function () {
+            $('.card').removeClass("play");
+            cz()
+            $('.load').removeClass("start");
+            x()
+            $('.card').removeClass("pause");
+        })
+        $('#first').click(function () {
+            $('.card').removeClass("play");
+            cz()
+            $('.card').addClass("play");
+            i = 0;
+            music[i].play()
+            musicname.innerHTML = names[i]
+            x()
+            $('.card').removeClass("pause");
+            $('.load').addClass("start");
+        })
+        $('#last').click(function () {
+            $('.card').removeClass("play");
+            cz()
+            $('.card').addClass("play");
+            i = 2;
+            music[i].play()
+            musicname.innerHTML = names[i]
+            x()
+            $('.card').removeClass("pause");
+            $('.load').addClass("start");
+        })
+        $('#sjbf').click(function () {
+            sjplay()
+            x()
+        })
+        $('#sxbf').click(function () {
+            sxplay()
+            x()
+        })
+        $('#dqxh').click(function () {
+            dqplay()
+            x()
+        })
+        $('.iconfont').click(function () {
+            $('.iconfont').removeClass('click')
+            this.classList.add('click')
+        })
+        window.onload = function () {
+            $('#sxbf >').click()
+        }
+        var x = music[i].ontimeupdate = function () {
+            mask.style.width = (this.currentTime / this.duration) * 100 + "%";
+        };
+        var cz = function () {
+            music[i].currentTime = 0
+            music[i].pause()
+        }
+
+    </script>
+</body>
+
+</html>

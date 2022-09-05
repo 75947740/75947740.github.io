@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="./360.css">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div class="headerbox">
+        <div class="header">
+            <img src="./headerimg.png" alt="">
+            <div class="link"><a href="#">论坛</a><a href="#">扩展</a><a href="#">Mac版</a></div>
+        </div>
+    </div>
+    <div class="box">
+        <div class="box1">
+            <div id="box1">
+                <div class="text">
+                    <p class="box1text1">畅快浏览 极致体验</p>
+                    <p class="box1text2">全新Chrome内核浏览器,性能更强,速度更快</p>
+                </div>
+                <span><a href="#" id="a32">32位版本</a><a href="#" id="a64"><img src="./64位.png"
+                            alt="64位系统">64位版本</a></span>
+            </div>
+        </div>
+        <div class="box2">
+            <div class="text">
+                <p id="text1">极速</p>
+                <div class="line"></div>
+                <p id="text2">全新Chromium内核</p>
+                <p id="text3">性能强劲，快如闪电.</p>
+                <a href="#"></a>
+            </div>
+            <video autoplay loop muted src="./video2.mp4"></video>
+        </div>
+        <div class="box3">
+            <div class="text">
+                <p id="text1">极速</p>
+                <div class="line"></div>
+                <p id="text2">暗夜炫黑模式</p>
+                <p id="text3">性能强劲，快如闪电.</p>
+                <a href="#"></a>
+            </div>
+            <video autoplay loop muted src="./video3.mp4"></video>
+        </div>
+        <div class="box4">
+            <div class="text">
+                <p id="text1">极酷</p>
+                <div class="line"></div>
+                <p id="text2">全新Chromium内核</p>
+                <p id="text3">定义酷，定义你。.</p>
+                <a href="#"></a>
+            </div>
+            <video autoplay loop muted src="./video4.mp4"></video>
+        </div>
+        <div class="box5">
+            <div class="text">
+                <p id="text1">极视界</p>
+                <div class="line"></div>
+                <p id="text2">4K高清视频播放</p>
+                <p id="text3">还原真实之美 ，尽显万物本色。.</p>
+                <a href="#"></a>
+            </div>
+            <video autoplay loop muted src="./video5.mp4"></video>
+            <div id="footer" class="footer">Copyright © 2005-
+                <script>var crdate = new Date; document.write(crdate.getFullYear())</script>2022 360.CN All Rights
+                Reserved
+                360互联网安全中心
+                <a target="_blank" href="http://www.360.cn/privacy/v3/bps360jsllqWindowsb.html">隐私政策</a>
+                <a target="_blank" href="https://beian.miit.gov.cn">京ICP证080047号[京ICP备08010314号-6]</a>
+                <br>
+                <span>
+                    网站举报电话：4006693600 举报邮箱：<a href="mailto:kefu@360.cn">kefu@360.cn</a> 互联网违法和不良信息举报中心：<a
+                        target="_blank" href="https://www.12377.cn/">https://www.12377.cn</a>
+                </span>
+                <br>
+                <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11000002000006">
+                    <img src="https://se1.360simg.com/t01d8eda6e551cf2615.png"
+                        style="vertical-align: middle; border:none;" alt=""> 京公网安备 11000002000006号</a>
+            </div>
+        </div>
+    </div>
+    <div class="change">
+        <span title="0"></span><span title="1"></span><span title="2"></span><span title="3"></span><span
+            title="4"></span>
+    </div>
+    <script>
+        var box = document.querySelector('.box')
+        var span = document.querySelectorAll('.change span')
+        var change = function () {
+            $(".change").children().css("opacity", '0.5')
+            $('.text').fadeOut()
+            $('.text').fadeIn()
+        }
+
+        var x = 0;
+        $(document).on("mousewheel DOMMouseScroll", function (e) {
+            var delta = (e.originalEvent.wheelDelta && (e.originalEvent.wheelDelta > 0 ? 1 : -1)) ||  // chrome & ie
+                (e.originalEvent.detail && (e.originalEvent.detail > 0 ? -1 : 1));              // firefox
+            if (delta > 0) {
+                if (x > 0) {
+                    x--;
+                    box.style.transform = "translateY(" + -x * 100 + "vh" + ")";
+                }
+                console.log("wheelup", x);
+
+            } else if (delta < 0) {
+                if (x < 4) {
+                    x++;
+                    box.style.transform = "translateY(" + -x * 100 + "vh" + ")";
+                }
+                console.log("wheeldown", x);
+            }
+        });
+         span.forEach(function (res) {
+            res.style.opacity = 0.5
+            res.onmouseenter = function () {
+                if (res.style.opacity == 0.5) {
+                    box.style.transform = "translateY(" + -res.title * 100 + "vh" + ")";
+                    change()
+                    this.style.opacity = 1;
+                }
+            }
+        });
+
+    </script>
+</body>
+
+</html>

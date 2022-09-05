@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YiQin</title>
+    <link rel="stylesheet" href="css/yiqin.css">
+    <style>
+        body {
+            background: linear-gradient(190deg, #cf334a 0%, #163168 85%);
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh;
+        }
+
+        .yiqin-modal-js-buttons {
+            padding: 6rem 5rem;
+        }
+
+        .yiqin-modal-js-buttons button {
+            display: inline-block;
+            margin-right: 15px;
+            border: 0;
+            background-color: #fff;
+            color: #444;
+            height: 28px;
+            cursor: pointer;
+            outline: 0;
+            border-radius: 3.5px;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="yiqin-modal-js-buttons">
+            <button class="msg-success">msg:success</button>
+            <button class="msg-error">msg:error</button>
+            <button class="msg-success-btn">msg:success:closeBtn</button>
+            <button class="msg-load1">load:icon1</button>
+            <button class="msg-load2">load:icon2</button>
+            <button class="alert">alert</button>
+            <button class="alert-close">alert:callback</button>
+            <button class="modal-test">modal</button>
+            <button class="modal-btn">modal:closeBtn</button>
+        </div>
+    </div>
+
+
+    <script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script src="js/yiqin.js"></script>
+    <script>
+        // 也可以直接使用
+        yiqin.msg('Hello YiQin', {
+            closeBtn: true
+        });
+        $(document).ready(function () {
+            $(".msg-success").on("click", function () {
+                yiqin.msg('success');
+            })
+            $(".msg-error").on("click", function () {
+                yiqin.msg('error', {
+                    msgStatus: 'error',
+                });
+            })
+            $(".msg-success-btn").on("click", function () {
+                yiqin.msg('success', {
+                    closeBtn: true
+                });
+            })
+            $(".msg-load1").on("click", function () {
+                var a = yiqin.load(1, {
+                    callback: function () {
+                        setTimeout(function () {
+                            yiqin.close(a);
+                        }, 1000);
+                    }
+                });
+            })
+            $(".msg-load2").on("click", function () {
+                var a = yiqin.load(2, {
+                    callback: function () {
+                        setTimeout(function () {
+                            yiqin.close(a);
+                        }, 1000);
+                    }
+                });
+            })
+            $(".alert").on("click", function () {
+                yiqin.alert('hello world!');
+            })
+            $(".alert-close").on("click", function () {
+                yiqin.alert('hello world!', {
+                    onClose: function (t, e, c) {
+                        console.log(t, e, c);
+                        yiqin.msg('alert closed');
+                    }
+                });
+            })
+            var modalTemp = `<div>
+                        <h4>Hello World!</h4>
+                        <p>layer 至今仍作为 layui 的代表作，它的受众广泛并非偶然，而是这数年来的坚持、不弃的执念，将那些不屑的眼光转化为应得的尊重，不断完善和维护、不断建设和提升社区服务，在 Web 开发者的圈子里口口相传，乃至于成为今天的 layui 最强劲的源动力。目前，layer 已然成为网页弹出层的首选交互方案，几乎随处可见。</p>
+                    </div>`;
+            $(".modal-test").on("click", function () {
+                yiqin.modal(modalTemp);
+            })
+            $(".modal-btn").on("click", function () {
+                yiqin.modal(modalTemp, {
+                    closeBtn: true
+                });
+            })
+        })
+    </script>
+    <script>
+        // var html = `<div>
+        //                 <h4>Hello World!</h4>
+        //                 <p>layer 至今仍作为 layui 的代表作，它的受众广泛并非偶然，而是这数年来的坚持、不弃的执念，将那些不屑的眼光转化为应得的尊重，不断完善和维护、不断建设和提升社区服务，在 Web 开发者的圈子里口口相传，乃至于成为今天的 layui 最强劲的源动力。目前，layer 已然成为网页弹出层的首选交互方案，几乎随处可见。</p>
+        //             </div>`;
+        // var a = yiqin.modal(html, {
+        //     animation: 'fade',
+        //     closeBtn: true,
+        //     onClose: function () {
+        //         yiqin.msg('success', {
+        //             autoClose: false,
+        //             closeBtn: true
+        //         });
+        //     }
+        // });
+    </script>
+</body>
+
+</html>

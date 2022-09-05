@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .stage {
+            width: 100%;
+            max-width: 580px;
+            height: 100vh;
+            background-color: lightblue;
+            background-image: url("./bg.png");
+            background-size: 100% auto;
+        }
+
+        .stage .main {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .stage .main i {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 90px;
+            height: 90px;
+            background-image: url("./jingling.png");
+            background-position: 0px 0px;
+            background-position: -181px -75px;
+            background-size: 545px;
+        }
+
+        .stage .main i.played {
+            background-image: url("./playing.png");
+            background-size: 50%;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .stage .over {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 0, 0, 0.423);
+            display: none;
+        }
+
+        .score {
+            display: flex;
+            position: relative;
+            z-index: 999;
+            justify-content: center;
+            top: 20px;
+            pointer-events: none;
+        }
+
+        .num {
+            display: block;
+            width: 28px;
+            height: 35px;
+            background-image: url("./score.png");
+            background-size: auto 100%;
+            background-repeat: no-repeat;
+        }
+
+        .num0 {
+            background-position-x: 0;
+        }
+
+        .num1 {
+            background-position-x: -28px;
+        }
+
+        .num2 {
+            background-position-x: -56px;
+        }
+
+        .num3 {
+            background-position-x: -84px;
+        }
+
+        .num4 {
+            background-position-x: -112px;
+        }
+
+        .num5 {
+            background-position-x: -140px;
+        }
+
+        .num6 {
+            background-position-x: -168px;
+        }
+
+        .num7 {
+            background-position-x: -196px;
+        }
+
+        .num8 {
+            background-position-x: -224px;
+        }
+
+        .num9 {
+            background-position-x: -252px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="stage">
+        <section class="main"></section>
+        <section class="over">over</section>
+        <section class="score">
+            <i class="num num0"></i>
+        </section>
+    </div>
+    <script>
+        var mainEl = $('.stage .main')
+        var overEl = $('.stage .over')
+        var scoreEl = $('.stage .score')
+        var music = [
+            [
+                25, 21, 22, 23, 24, 25, 21, 21, 26, 24, 25, 26, 27, 31, 21, 21, 24, 25, 24, 23, 22, 23, 24, 23, 22, 21, 17,
+                21, 22, 23, 21, 22, 25, 21, 22, 23, 24, 25, 21, 21, 26, 24, 25, 26, 27, 31, 21, 21, 24, 25, 24, 23, 22, 23,
+                24, 23, 22, 21, 22, 23, 22, 21, 17, 21,
+            ],
+            [
+                23, 22, 21, 17, 16, 15, 16, 17, 21, 17, 16, 15, 14, 13, 14, 12, 21, 17, 21, 11, 7, 15, 12, 13, 11, 21, 17, 16,
+                17, 23, 25, 26, 24, 23, 22, 24, 24, 23, 21, 17, 16, 15, 14, 13, 12, 14, 13, 12, 11, 12, 13, 14, 15, 12, 15,
+                14, 13, 16, 15, 14, 15, 14, 13, 12, 11, 6, 16, 17, 21, 17, 16, 15, 14, 13, 12, 16, 15, 16, 15, 14, 13, 23, 22,
+                21, 22, 21, 23, 22, 24, 25, 23, 24, 25, 23, 24, 25, 15, 16, 17, 21, 22, 23, 24, 23, 21, 22, 23, 13, 14, 15,
+                16, 15, 14, 15, 13, 14, 15, 14, 16, 15, 14, 13, 12, 13, 12, 11, 12, 13, 14, 15, 16, 14, 16, 15, 16, 17, 21,
+                15, 16, 17, 21, 22, 23, 24, 25, 23, 21, 22, 23, 22, 21, 22, 17, 21, 22, 23, 22, 21, 17, 21, 16, 17, 21, 11,
+                12, 13, 14, 13, 12, 13, 21, 17, 21, 16, 21, 17, 16, 15, 14, 15, 14, 13, 14, 15, 16, 17, 11, 16, 21, 17, 21,
+                17, 16, 17, 21, 22, 21, 17, 21, 16, 17, 23, 13, 14, 13, 12, 22, 23, 22, 21, 13, 11, 16, 15, 5, 4, 5, 6, 16,
+                17, 16, 17, 5, 4, 5, 6, 16, 15, 16, 17, 17, 16, 17, 11, 21, 22, 21, 17, 7, 11, 7, 6, 16, 15, 16, 17, 7, 13,
+                12, 11, 21, 22, 24, 23, 13, 15, 23, 21, 24, 23, 24, 22, 15, 14, 15, 13, 21, 17, 21, 13, 15, 15, 16, 17, 15,
+                13, 21, 22, 23, 21, 23, 23, 22, 21, 17, 16, 16, 15, 16, 17, 21, 23, 22, 21, 23,
+            ],
+        ];
+        var puzi = music[Math.floor(Math.random() * music.length)];
+        mainEl.onclick = function () {
+            console.log("点错了");
+            var x = Math.floor(event.clientX / 90);
+            var firstLtClick = dots.find(function (dot) {
+                return dot.y * 90 < event.clientY;
+            });
+            y = firstLtClick ? firstLtClick.y : dots[0].y;
+            console.log(x, y);
+            function appendText() {
+                var text3 = document.createElement("div");
+            }
+            $('div').css({
+                width: 90,
+                height: 90,
+                position: "absolute",
+                top: y * 90,
+                left: x * 90,
+                backgroundcolor: 'blue',
+            })
+            mainEl.append(text3);
+            clearInterval(id);
+            overEl.css({
+                display:'black',
+            })
+        }
+        var dots = [];
+        var score = 0;
+        var speed = 0.01;
+        
+        
+    </script>
+</body>
+
+</html>

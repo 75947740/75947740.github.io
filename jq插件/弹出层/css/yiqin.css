@@ -1,0 +1,225 @@
+body {
+    margin: 0;
+    background-color: #f1f1f1;
+}
+
+@media screen and (max-width: 1200px) {
+    body .yiqin-modal {
+        max-width: 300px;
+    }
+}
+
+.yiqin-modal {
+    position: fixed;
+    min-width: 100px;
+    max-width: 600px;
+    background-color: #fff;
+    color: #444;
+    top: 6%;
+    left: 10%;
+    box-shadow: 0 3px 8px 1px rgba(0, 0, 0, .2);
+    border-radius: 3.5px;
+    display: none;
+    z-index: 100002;
+}
+
+.yiqin-modal.active {
+    display: block;
+}
+
+/*动画效果*/
+.yiqin-modal.scaled {
+    animation: modal-scaled 0.5s forwards ease-in-out;
+    -webkit-animation: modal-scaled 0.5s forwards ease-in-out;
+}
+
+@keyframes modal-scaled {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.yiqin-modal.fade {
+    animation: modal-fade 0.5s ease-in-out;
+}
+
+@keyframes modal-fade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.yiqin-modal .yiqin-modal-content {
+    position: relative;
+    padding: 10px 25px;
+    line-height: 24px;
+    word-break: break-all;
+    overflow: hidden;
+    font-size: 14px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.yiqin-modal.status .yiqin-modal-content::before {
+    content: ' ';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    position: absolute;
+    left: 16px;
+    top: 18px;
+    background-color: #ffffff;
+}
+
+.yiqin-modal.status .yiqin-modal-content {
+    padding-left: 36px;
+}
+
+.yiqin-modal.status .yiqin-modal-content::before {
+    transition: .2s all ease-in-out;
+}
+
+.yiqin-modal.status:hover .yiqin-modal-content::before {
+    transform: scale(1.1);
+}
+
+.yiqin-modal.status.success .yiqin-modal-content::before {
+    background-color: #4caf50;
+}
+
+.yiqin-modal.status.error .yiqin-modal-content::before {
+    background-color: #f44336;
+}
+
+.yiqin-modal.loading-item {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.yiqin-modal.loading-item .yiqin-modal-content {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.yiqin-modal.loading-item svg {
+    width: 52px;
+    height: 52px;
+    color: #fff;
+}
+
+.yiqin-modal.yiqin-modal-alert {
+    width: 320px;
+    border-radius: 3.5px;
+}
+
+.yiqin-modal.yiqin-modal-alert .yiqin-modal-content {
+    padding: 15px;
+}
+
+.yiqin-modal.yiqin-modal-alert .yiqin-modal-buttons {
+    display: flex;
+    justify-content: end;
+    padding: 12px;
+}
+
+.yiqin-modal.yiqin-modal-alert .yiqin-modal-buttons .yiqin-button {
+    display: inline-block;
+    margin-right: 12px;
+    border-radius: 3.5px;
+    color: #fff;
+    background-color: #1976d2;
+    padding: 6px 16px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.yiqin-modal.yiqin-modal-alert .yiqin-modal-buttons .yiqin-button:first-child {
+    margin-right: 0;
+}
+
+.yiqin .yiqin-shadow {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 100001;
+
+}
+
+.yiqin-modal-close {
+    display: inline-block;
+    width: 14px;
+    height: 1px;
+    background: #6e6e6e;
+    transform: rotate(45deg);
+    position: absolute;
+    right: 18px;
+    top: 22px;
+}
+
+.yiqin-modal-close::before {
+    content: '';
+    display: block;
+    width: 14px;
+    height: 1px;
+    background: #6e6e6e;
+    transform: rotate(-90deg);
+}
+
+.yiqin-modal-close::after {
+    content: ' ';
+    width: 16px;
+    height: 16px;
+    display: block;
+    cursor: pointer;
+    transform: rotate(45deg);
+    position: absolute;
+    right: -1px;
+    top: -8px;
+}
+
+.yiqin-modal.yiqin-modal-box {
+    max-width: 520px;
+}
+
+.yiqin-modal.yiqin-modal-box .yiqin-modal-buttons {
+    padding: 8px 25px;
+    margin-bottom: 12px;
+}
+
+.yiqin-modal.yiqin-modal-box .yiqin-modal-buttons .yiqin-button {
+    display: inline-block;
+    margin-right: 12px;
+    border-radius: 3.5px;
+    color: #fff;
+    background-color: #1976d2;
+    padding: 6px 16px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1200px) {
+    .yiqin-modal.yiqin-modal-box {
+        min-width: 200px;
+        max-width: 320px;
+        min-height: 200px;
+    }
+}
