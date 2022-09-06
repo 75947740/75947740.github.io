@@ -76,7 +76,7 @@
                 <a target="_blank" href="https://beian.miit.gov.cn">京ICP证080047号[京ICP备08010314号-6]</a>
                 <br>
                 <span>
-                    网站举报电话：4006693600 举报邮箱：<a href="mailto:kefu@360.cn">kefu@360.cn</a> 互联网违法和不良信息举报中心：<a
+                    网站举报电话;4006693600 举报邮箱：<a href="mailto:kefu@360.cn">kefu@360.cn</a> 互联网违法和不良信息举报中心：<a
                         target="_blank" href="https://www.12377.cn/">https://www.12377.cn</a>
                 </span>
                 <br>
@@ -98,7 +98,6 @@
             $('.text').fadeOut()
             $('.text').fadeIn()
         }
-
         var x = 0;
         $(document).on("mousewheel DOMMouseScroll", function (e) {
             var delta = (e.originalEvent.wheelDelta && (e.originalEvent.wheelDelta > 0 ? 1 : -1)) ||  // chrome & ie
@@ -108,14 +107,11 @@
                     x--;
                     box.style.transform = "translateY(" + -x * 100 + "vh" + ")";
                 }
-                console.log("wheelup", x);
-
             } else if (delta < 0) {
                 if (x < 4) {
                     x++;
                     box.style.transform = "translateY(" + -x * 100 + "vh" + ")";
                 }
-                console.log("wheeldown", x);
             }
         });
          span.forEach(function (res) {
@@ -128,7 +124,6 @@
                 }
             }
         });
-
     </script>
 </body>
 
