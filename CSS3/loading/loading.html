@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .bg {
+            position: fixed;
+            /* background: #34495d; */
+            background-image: linear-gradient(45deg, rgb(90, 54, 148) 0%, rgb(19, 189, 206) 33%, rgb(0, 148, 217) 66%, rgb(111, 199, 181) 100%);
+            width: 100%;
+            height: 100%;
+        }
+
+        .box {
+            position: fixed;
+            min-width: 350px;
+            border: 2px solid #9febe0;
+            border-radius: 100px;
+            box-shadow: 5px 5px 50px 15px rgb(0 255 235 / 30%);
+            left: 37%;
+            top: 40%;
+        }
+
+        .loading {
+            text-align: center;
+        }
+
+        .loading p {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .xz {
+            width: 50px;
+            height: 50px;
+            margin: 0px auto;
+            border-radius: 50%;
+            border-top: 5px solid #fff;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            background: rgba(255, 255, 255, 0);
+            animation-name: myxz;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes myxz {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg">
+        <div class="box">
+            <div class="loading">
+                <p>Loading...</p>
+                <div class="xz"></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,187 @@
+body {
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(0deg, rgba(0, 0, 200, 0.4), rgba(0, 0, 200, 0));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+}
+
+h3,
+h5,
+p {
+    transition: inherit;
+    margin: 0;
+    text-transform: uppercase;
+    color: white;
+    // 仅大写
+}
+
+h3 {
+    font-size: 2em;
+    font-weight: 300;
+}
+
+h5 {
+    font-size: 1em;
+    font-weight: 400;
+}
+
+p {
+    font-size: 2em;
+}
+
+.card {
+    width: 400px;
+    height: 540px;
+    background-image: url(./600x600.jpg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform-origin: center center 100px;
+    transition: all 2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
+        box-shadow: 0 0 10px 0 gray;
+        transition: inherit;
+        // 继承
+    }
+
+    &::before {
+        background: linear-gradient(0deg, rgba(0, 0, 200, 0.154), rgba(0, 0, 200, 0.219));
+        z-index: 1;
+
+    }
+
+    &::after {
+        background-color: rgb(49, 49, 49);
+        z-index: -1;
+        transform: translateZ(-20px);
+    }
+
+    &.active {
+        transform: rotateX(60deg) translateZ(50px);
+
+        h3 {
+            transform: translateZ(50px);
+        }
+
+        h5 {
+            transform: translateZ(30px);
+        }
+
+        p {
+            transform: translateZ(10px);
+        }
+
+        h3,
+        h5 {
+            opacity: 0;
+        }
+
+        &::before,
+        &::after {
+            box-shadow: 0 0 30px 0 rgba(15, 15, 15, 0.535);
+        }
+
+        &::before {
+            background: linear-gradient(0deg, rgba(0, 0, 200, 0.538), rgba(0, 0, 200, 0));
+        }
+
+        .container {
+            div {
+                &:nth-child(1) {
+                    transform: translateZ(150px) rotate(45deg);
+
+                }
+
+                &:nth-child(2) {
+                    transform: translateZ(80px) rotate(45deg);
+
+                }
+
+                &:nth-child(3) {
+                    transform: translateZ(100px) rotate(45deg);
+
+                }
+
+                &:nth-child(4) {
+                    transform: translateZ(60px) rotate(45deg);
+
+                }
+
+                &:nth-child(5) {
+                    transform: translateZ(75px) rotate(45deg);
+
+                }
+
+                &:nth-child(6) {
+                    transform: translateZ(50px) rotate(45deg);
+
+                }
+
+                &:nth-child(7) {
+                    transform: translateZ(90px) rotate(45deg);
+
+                }
+            }
+        }
+
+    }
+
+    .container {
+        transform-style: preserve-3d;
+        display: flex;
+
+        div {line-height: 30px;
+            text-align: center;
+            transform-style: preserve-3d;
+            width: 30px;
+            height: 30px;
+            margin: 30px 10px;
+            background-color: white;
+            transform: rotate(45deg);
+
+
+            &::before,
+            &::after {
+                text-align: left;
+                content: '20,000';
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 200px;
+                height: 100%;
+                transform-origin: left bottom;
+                background-image: linear-gradient(to right, white, rgb(150, 150, 150));
+            }
+
+            &::before {
+                transform: rotateY(90deg) rotateX(-90deg);
+            }
+
+            &::after {
+                content: '';
+                transform-origin: right;
+                transform: rotateY(-90deg) translateZ(170px);
+            }
+        }
+    }
+
+}
